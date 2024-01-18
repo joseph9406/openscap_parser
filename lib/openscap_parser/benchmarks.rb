@@ -13,9 +13,9 @@ module OpenscapParser
         def benchmark
           @benchmark ||= OpenscapParser::Benchmark.new(parsed_xml: benchmark_node)
         end        
-        # ".//Benchmark中;其中, 表示在当前节点開始的子孙节点中查找。"當前節點"不見得只有一個節點,是滿足當前節點的所有節點。      
-        # "//Benchmark";其中, "//" 代表从文档的根节点开始查找所有的節點。
-        def benchmark_node(xpath = ".//Benchmark")  
+        # ".//Benchmark中; 其中, 表示在当前节点開始(包括当前节点本身)的子孙节点中查找。"當前節點"不見得只有一個節點,是滿足當前節點的所有節點。      
+        # "//Benchmark"; 其中, "//" 代表从文档的根节点开始,查找所有(整个文档中)的"Banchmark節點"。
+        def benchmark_node(xpath = ".//Benchmark")
           xpath_node(xpath)
         end
       end
